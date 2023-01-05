@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+## React Tutorial
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[react-kr 공식 문서의 튜토리얼](https://reactjs-kr.firebaseapp.com/tutorial/tutorial.html)을 따라해본 프로젝트.
 
-## Available Scripts
+[공부하면서 작성하고 있는 velog 게시글](https://velog.io/@minjeong-dev/React-튜토리얼-도전기-Angular만-써본-개발자가)
 
-In the project directory, you can run:
+---
+## 학습 목록
 
-### `npm start`
+- [x] React.Component
+- [x] props & state
+- [x] 함수형 컴포넌트 작성법
+- [ ] ```<li key={}/>``` 사용법
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 틱택토 게임 구현
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 기본 기능
+- [x] Square, Board, Game으로 3x3 보드 출력
+- [x] 클릭 이벤트 발생 시 X/O 표기
+- [x] 게임 승패 검사
+- [ ] 게임 종료 시 클릭 이벤트 발생해도 보드 변경 안 되도록 처리
+- [ ] 게임 히스토리 저장 후 출력하는 기능
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### advanced
+- [ ] 움직임 리스트에서 (col, row) 형태에 각 움직임 위치를 표시하기
+- [ ] 움직임 리스트의 선택된 아이템을 볼드 처리
+- [ ] 하드 코딩한 것들 대신 사각형을 두 개의 루프를 사용하여 Board를 다시 작성하기
+- [ ] 오름차순 혹은 내림차순이든 움직임을 정렬하는 버튼을 추가하기
+- [ ] 누군가 이겼을 때 무엇 때문에 이겼는지 세 개의 사각형을 하이라이트하기
