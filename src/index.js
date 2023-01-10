@@ -1,25 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
-
-/*
-class Square extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     value: null,
-  //   };
-  // }
-
-  render() {
-    return (
-      <button className="square" onClick={() => this.props.onClick()}>
-        {this.props.value}
-      </button>
-    );
-  }
-}
-*/
 
 function Square(props) {
   return (
@@ -29,61 +10,58 @@ function Square(props) {
   );
 }
 
-class Board extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      squares: Array(9).fill(null),
-      xIsNext: true
-    };
-  }
+function Board(props) {
+  const [squares, setSquares] = useState(Array(9).fill(null));
+  const [xIsNext, setXIsNext] = useState(true);
+  const [gameStatus, setGameStatus] = useState(undefined);
 
-  handleClick(i) {
-    const winner = calculateWinner(this.state.squares);
-    if (winner || this.state.squares[i]) {
+  function handleClick(i) {
+    const winner = calculateWinner(squares);
+    if (winner || squares[i]) {
       return;
     }
 
-    const squares = this.state.squares.slice();
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
-    const xIsNext = !this.state.xIsNext;
-    this.setState({squares, xIsNext});
+    const newSquares = [...squares];
+    newSquares[i] = xIsNext ? 'X' : 'O';
+    setSquares(newSquares);
+
+    const newXIsNext = !xIsNext;
+    setXIsNext(newXIsNext);
   }
 
-  renderSquare(i) {
-    return <Square
-      value={this.state.squares[i]}
-      onClick={() => this.handleClick(i)}
-    />;
-  }
+  useEffect(() => {
+    const winner = calculateWinner(squares);
 
-  render() {
-    const winner = calculateWinner(this.state.squares);
-
-    let status;
     if (winner) {
-      status = `Winner: ${winner}`
+      setGameStatus(`Winner: ${winner}`);
     } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      setGameStatus('Next player: ' + (xIsNext ? 'X' : 'O'));
     }
+  }, [squares, xIsNext]);
 
-    const boardColumns = [0, 1, 2].map(row =>
-      [0, 1, 2].map(col =>this.renderSquare(row * 3 + col))
-    );
-
-    const boardRows = [0, 1, 2].map((row) =>
-      <div className="board-row">
-        {boardColumns[row]}
-      </div>
-    );
-
-    return (
-      <div>
-        <div className="status">{status}</div>
-        {boardRows}
-      </div>
-    );
-  }
+  return (
+    <div>
+      <div className="status">{gameStatus}</div>
+      {
+        [0, 1, 2].map((row) => {
+          return (
+            <div key={row} className="board-row">
+              {
+                [0, 1, 2].map(col => {
+                  return (
+                    <Square key={row * 3 + col}
+                      value={squares[row * 3 + col]}
+                      onClick={() => handleClick(row * 3 + col)}
+                      />
+                  )
+                })
+              }
+            </div>
+          );
+        })
+      }
+    </div>
+  );
 }
 
 class Game extends React.Component {
