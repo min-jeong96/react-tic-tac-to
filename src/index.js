@@ -40,7 +40,7 @@ function Board(props) {
   }, [squares, xIsNext]);
 
   return (
-    <div>
+    <div className="game-board">
       <div className="status">{gameStatus}</div>
       {
         [0, 1, 2].map((row) => {
@@ -67,16 +67,15 @@ function Board(props) {
 function Game(props) {
   return (
     <div className="game">
-      <div className="game-board">
-        <Board />
-      </div>
-        <div className="game-info">
-        <div>{/* status */}</div>
-        <ol>{/* TODO */}</ol>
-      </div>
+      <Board />
     </div>
   );
 }
+
+// <div className="game-info">
+// <div>{/* status */}</div>
+// <ol>{/* TODO */}</ol>
+// </div>
 
 function calculateWinner(squares) {
   const lines = [
