@@ -1,8 +1,8 @@
 {
-  "name": "react-tutorial",
+  "name": "react-tic-tac-to",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://min-jeong96.github.io/react-tutorial",
+  "homepage": "https://min-jeong96.github.io/react-tic-tac-to",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
