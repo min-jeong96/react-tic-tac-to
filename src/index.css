@@ -56,6 +56,14 @@ ol, ul {
   font-weight: bold;
 }
 
+.square.X {
+  color: darkslategray;
+}
+
+.square.O {
+  color: lightcoral;
+}
+
 .square::after {
   display: block;
   padding-bottom: 100%;
