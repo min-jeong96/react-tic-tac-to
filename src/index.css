@@ -34,6 +34,7 @@ ol, ul {
 .board-row {
   display: flex;
   justify-content: center;
+  margin: -1px 0;
 }
 
 .status {
@@ -47,8 +48,7 @@ ol, ul {
   align-items: center;
   justify-content: center;
   width: 30%;
-  margin-right: -1px;
-  margin-top: -1px;
+  margin: -1px -1px 0 0;
   padding: 0;
   background: #fff;
   border: 1px solid #999;
@@ -66,9 +66,9 @@ ol, ul {
   outline: none;
 }
 
-.kbd-navigation .square:focus {
+/* .kbd-navigation .square:focus {
   background: #ddd;
-}
+} */
 
 .game {
   max-width: 400px;
