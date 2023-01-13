@@ -10,10 +10,31 @@ function Square(props) {
   );
 }
 
+function AgainButton(props) {
+  const winner = calculateWinner(props.squares);
+  const isFinished = props.squares.find(square => square === null) === undefined;
+
+  return (
+    <div className="button">
+      <button
+        disabled={!winner && !isFinished}
+        onClick={() => props.reset()}
+        >Again
+      </button>
+    </div>
+  )
+}
+
 function Board(props) {
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
   const [gameStatus, setGameStatus] = useState(undefined);
+
+  function reset() {
+    setSquares(Array(9).fill(null));
+    setXIsNext(true);
+    setGameStatus(undefined);
+  }
 
   function handleClick(i) {
     const winner = calculateWinner(squares);
@@ -42,6 +63,7 @@ function Board(props) {
   return (
     <div className="game-board">
       <div className="status">{gameStatus}</div>
+      <AgainButton squares={squares} reset={reset}/>
       {
         [0, 1, 2].map((row) => {
           return (
