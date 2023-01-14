@@ -64,6 +64,10 @@ ol, ul {
   color: lightcoral;
 }
 
+.square.highlighted {
+  background-color: antiquewhite;
+}
+
 .square::after {
   display: block;
   padding-bottom: 100%;

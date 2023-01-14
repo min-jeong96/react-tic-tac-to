@@ -4,7 +4,7 @@ import './index.css';
 
 function Square(props) {
   return (
-    <button className={`square ${props.value}`} onClick={props.onClick}>
+    <button className={`square ${props.className} ${props.value}`} onClick={props.onClick}>
       {props.value}
     </button>
   );
@@ -29,15 +29,18 @@ function Board(props) {
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
   const [gameStatus, setGameStatus] = useState(undefined);
+  const [winnerLine, setWinnerLine] = useState([]);
 
   function reset() {
     setSquares(Array(9).fill(null));
     setXIsNext(true);
     setGameStatus(undefined);
+    setWinnerLine([]);
   }
 
   function handleClick(i) {
     const winner = calculateWinner(squares);
+    
     if (winner || squares[i]) {
       return;
     }
@@ -52,6 +55,7 @@ function Board(props) {
 
   useEffect(() => {
     const winner = calculateWinner(squares);
+    setWinnerLine(calculateWinnerLine(squares));
 
     if (winner) {
       setGameStatus(`Winner: ${winner}`);
@@ -72,6 +76,7 @@ function Board(props) {
                 [0, 1, 2].map(col => {
                   return (
                     <Square key={row * 3 + col}
+                      className={winnerLine.includes(row * 3 + col) ? 'highlighted':''}
                       value={squares[row * 3 + col]}
                       onClick={() => handleClick(row * 3 + col)}
                       />
@@ -99,7 +104,7 @@ function Game(props) {
 // <ol>{/* TODO */}</ol>
 // </div>
 
-function calculateWinner(squares) {
+function calculateWinnerLine(squares) {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -114,10 +119,14 @@ function calculateWinner(squares) {
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
+      return lines[i];
     }
   }
-  return null;
+  return [null];
+}
+
+function calculateWinner(squares) {
+  return squares[calculateWinnerLine(squares)[0]];
 }
 
 // ========================================
