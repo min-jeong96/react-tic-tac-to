@@ -1,7 +1,7 @@
 ## React Tutorial
 틱택토 게임 만들기.
 ### 배포 주소
-https://min-jeong96.github.io/react-tic-tac-to/
+https://min-jeong96.github.io/react-tic-tac-toee/
 
 ### 관련 포스팅
 [공부하면서 작성하고 있는 velog 게시글](https://velog.io/@minjeong-dev/React-튜토리얼-도전기-Angular만-써본-개발자가)
